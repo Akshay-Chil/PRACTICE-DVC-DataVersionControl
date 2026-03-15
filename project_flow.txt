@@ -1,0 +1,14 @@
+# pip install dvc (if dvc is not present)
+# Do git add-commit before initializing dvc.
+# Now do 'dvc init'
+# mkdir s3
+# Now we do "dvc remote add myremote S3" --> We are telling where is our remote location of bucket/folder is
+# Now, we add data to dvc for tracking --> 'dvc add data/'
+    - This gives the error that if git is already tracking the data folder, remove it from git tracking and make dvc track it. 
+      (git rm -r cached 'data' and git commit -m "Stop tracking the data folder").
+# Next, when we have done -> the dvc add data/ -> dvc makes changes to the .gitignore file and puts data/ in it. Also, it create data.dvc,
+which contains the metadata of the file.
+# dvc commit and push --> Till now the dvc is only tracking our data, it has not put anything in the S3 bucket
+# Do git add-commit-push to mark this stage as first version of data.
+
+# Now make some changes in the data (like appending/removing any line) and see the dvc status.
